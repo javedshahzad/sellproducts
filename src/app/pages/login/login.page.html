@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="logo">
+    <img src="../../../assets/img/logo1.png" alt="" class="image">
+  </div>
+  <div class="main">
+    <div class="inputs">
+      <label for="email" class="label">E-mail</label>
+      <input type="text" name="email" [(ngModel)]="users.email" class="inputstyle">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Password</label>
+      <input type="password" [(ngModel)]="users.password" name="password" class="inputstyle">
+    </div>
+   <div class="bgr-buttn" (click)="login()">
+    <button class="bg_mybtn">Login</button>
+   </div>
+   <div class="text-botom" routerLink="/register">
+     <p >Don't have account?</p>
+     <p class="mm">You can register yourself</p>
+   </div>
+  </div>
+</ion-content>

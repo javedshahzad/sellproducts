@@ -2,26 +2,45 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+        <div class="cross">
+          <i class="fa fa-times" aria-hidden="true" (click)="closemenu()"></i>
+        </div>
+        <ion-list style="background: transparent;">
+     
+        
+          <div class="logo-img">
+            <img src="../assets/img/logo1.png" alt="User Image" />
+        </div>
+          <ion-menu-toggle auto-hide="false" >
+            <ion-item class="hoverefect" *ngFor="let p of appPages; let i = index" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <!-- <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon> -->
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
+        <div  *ngIf="!islogin" class="profile_content">
+          <div class="profile"(click)="login()">
+            <div class="profiledata">
+              <!-- <img src="../assets/img/man.jpg" alt=""> -->
+              <div class="name_user" >
+                <div class="name">Login</div>
+              </div>
+            </div>
+          </div>
+          <i class='bx bx-log-in' id="log_in" (click)="login()"></i>
+        </div>
+        <div *ngIf="islogin" class="profile_content">
+          <div class="profile2" (click)="logout()">
+            <div class="profiledata">
+              <img src="../assets/img/man.jpg" alt="">
+              <div class="name_user2" >
+                <div class="name2">Ausloggen</div>
+              </div>
+            </div>
+          </div>
+          <i class='bx bx-log-in' id="log_out" (click)="logout()"></i>
+        </div>
+        
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

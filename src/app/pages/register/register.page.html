@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="logo">
+    <img src="../../../assets/img/logo1.png" alt="" class="image">
+  </div>
+  <div class="main">
+    <div class="inputs">
+      <label for="email" class="label">E-mail</label>
+      <input type="text" name="email" class="inputstyle" [(ngModel)]="users.email" placeholder="E-mail">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Password</label>
+      <input type="password" name="password" class="inputstyle" [(ngModel)]="users.password" placeholder="Password">
+    </div>
+    <h3 style="font-weight: bold; color: #000000; text-transform: uppercase; margin: 3px;">User Information</h3>
+    <div class="inputs">
+      <label for="email" class="label">Name*</label>
+      <input type="text" name="name" [(ngModel)]="users.name" class="inputstyle" placeholder="Name">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Phone*</label>
+      <input type="tel" name="phone" [(ngModel)]="users.phone" class="inputstyle" placeholder="Phone No">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Image*</label>
+      <input type="file" name="iamge" accept="image/*" class="inputstyle" (change)="imageupload($event)" placeholder="Profilbild">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Town*</label>
+      <select name="cars" id="cars" class="inputstyle" [(ngModel)]="users.town">
+        <option value="uk">UK</option>
+        <option value="germeny">Germeny</option>
+        <option value="usa">USA</option>
+        <option value="Pakistan">Pakistan</option>
+  </select>
+      <!-- <input type="text" name="email" class="inputstyle" placeholder="E-mail"> -->
+    </div>
+    <div class="bgr-buttn" (click)="register()">
+    <button class="bg_mybtn">Register</button>
+   </div>
+   <div class="text-botom" routerLink="/login">
+     <p >Have you already an account?</p>
+     <p class="mm">Lets login</p>
+   </div>
+  </div>
+</ion-content>
