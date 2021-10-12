@@ -1,0 +1,66 @@
+<ion-header lines="none" detail="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="news">
+    <h3>All Bookings</h3>
+  </div>
+</ion-header>
+
+<ion-content class="main">
+<div class="lower" *ngFor="let item of bookings" >
+  <button class="btn btn-primary" (click)="chat(item)">Contact User</button>
+  <ion-item lines="none" detail="false" class="question">
+      <img src="{{item.product_image}}" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Item Name: {{item.productname}}</p>
+      <span class="p2">Description: {{item.description}}</span>
+      <p class="p3">User: {{item.userName}}</p>
+      <p class="p4">User Town: {{ item.userTown }}</p>
+      <p class="p4">Price {{ item.price | currency:'USD' }}</p>
+      <p class="p5" [class.active]="item.status === deliverd" [class.active2]="item.status === 'pending'">{{item.status}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <button class="btn btn-danger" slot="start" (click)="presentAlertPrompt(item.key)" *ngIf="item.status === 'pending'">Postpond</button>
+    <button style="margin-left: 20px;" class="btn btn-success" (click)="deliverditem(item.key)" *ngIf="item.status != 'delivered' ">Deliver</button>
+    <button class="btn btn-primary" slot="end" (click)="gotomap(item.town)">Map</button>
+  </ion-item>
+</div>
+
+<!-- <div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/doc1.PNG" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div>
+<div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/med1.jpg" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div>
+<div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/doc2.PNG" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div> -->
+</ion-content>

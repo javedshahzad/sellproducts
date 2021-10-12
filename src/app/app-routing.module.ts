@@ -26,7 +26,32 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
+  {
+    path:'admin',
+    loadChildren:()=>import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./pages/products/products.module').then( m => m.ProductsPageModule)
+  },
+  {
+    path: 'mycart',
+    loadChildren: () => import('./pages/mycart/mycart.module').then( m => m.MycartPageModule)
+  },
+  {
+    path: 'myorders',
+    loadChildren: () => import('./pages/myorders/myorders.module').then( m => m.MyordersPageModule)
+  },
+  {
+    path: 'editprofile',
+    loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+  },
+
 ];
 
 @NgModule({

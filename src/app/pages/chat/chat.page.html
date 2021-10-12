@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-toolbar class="header-color">
+   <ion-item style="--background: transparent;">
+    <ion-icon name="chevron-back-outline" slot="start" class="back-arr" routerLink="/products"></ion-icon>
+    <img src="{{userProfile}}" alt="" class="user_img">
+    <div class="text">
+      <p class="bb">{{userName}}</p>
+    </div>
+   </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngFor="let item of chatsms">
+    <div class="message-blue" *ngIf="item.type != 'user'">
+        <p class="message-content">{{item.message}}</p>
+        <div class="message-timestamp-left">{{ item.created_at | date:'shortTime'}}</div>
+    </div>
+    
+    <div class="message-orange" *ngIf="item.type == 'user'">
+      <p class="message-content">{{item.message}}</p>
+      <div class="message-timestamp-left">{{ item.created_at | date:'shortTime'}}</div>
+    </div>
+</div>
+</ion-content>
+  <ion-footer>
+    <ion-item>
+     <div class="input">
+      <input type="text" name="message" class="inputstyle" [(ngModel)]="message">
+     </div>
+     <div class="butt" (click)="sendmsg()">
+      <i class='bx bxs-send' ></i>
+     </div>
+    </ion-item>
+  </ion-footer>

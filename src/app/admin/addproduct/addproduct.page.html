@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="logo">
+    <h3 class="image">Add new Product </h3>
+  </div>
+  <div class="main">
+    <form #aaddproduct="ngForm" class="form" (ngSubmit)="addproduct()" enctype="multipart/form-data">
+
+ 
+    <div class="inputs">
+      <label for="email" class="label">Poduct Name</label>
+      <input type="text" name="email" class="inputstyle" [(ngModel)]="product.productname" placeholder="Poduct Name">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Short Description</label>
+      <input type="text" name="description" class="inputstyle" [(ngModel)]="product.description" placeholder="Description">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Quantity*</label>
+      <input type="number" name="name" [(ngModel)]="product.quantity" class="inputstyle" placeholder="Quantity">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Price*</label>
+      <input type="number" name="phone" [(ngModel)]="product.price" class="inputstyle" placeholder="Price">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Product Image*</label>
+      <input type="file" name="iamge" accept="image/*" class="inputstyle" (change)="imageupload($event)" placeholder="Image">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Town/City*</label>
+      <select name="cars" id="cars" class="inputstyle" [(ngModel)]="product.town">
+        <option value="Firgas">Firgas</option>
+        <option value="Juan Grande">Juan Grande</option>
+        <option value="San Agustín">San Agustín</option>
+        <option value="Gran Canaria,">Gran Canaria</option>
+        <option value="Telde">Telde</option>
+  </select>
+      <!-- <input type="text" name="email" class="inputstyle" placeholder="E-mail"> -->
+    </div>
+    <div class="bgr-buttn">
+    <button type="ngSubmit" class="bg_mybtn" [disabled]="!aaddproduct.valid">Add Product</button>
+   </div>
+  </form>
+  </div>
+</ion-content>

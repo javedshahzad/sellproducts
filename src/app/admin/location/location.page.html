@@ -1,0 +1,21 @@
+<ion-header lines="none" detail="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="news">
+    <h3>User location</h3>
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="stacked">Destination Address</ion-label>
+    <ion-input  name="name" type="text" [(ngModel)]="location.name" placeholder="Enter Address name"></ion-input>
+</ion-item>
+    <ion-button expand="full" type="submit" (click)="calculateAndDisplayRoute()" style="--background:linear-gradient(to right, #29ee86, #3fa0d7); color: #ffff;">Click</ion-button>
+
+  <div #mapElement class="map" style="height: 80%; width: 100%;"></div>
+</ion-content>

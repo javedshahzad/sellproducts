@@ -1,0 +1,100 @@
+<ion-header lines="none" detail="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <i class='bx bx-menu-alt-left' slot="start" id="my_menu" (click)="openmenu()"></i>
+    <ion-icon name="search-outline" slot="end" id="search"></ion-icon>
+    <ion-icon name="notifications-outline" slot="end" id="notify"></ion-icon>
+    <img src="../../../assets/img/man.jpg" alt="" slot="end" class="user-img"> -->
+  </ion-toolbar>
+  <div class="news">
+    <h3>Products</h3>
+  </div>
+</ion-header>
+
+<ion-content class="mainuper">
+  <div class="main" *ngFor="let item of getproducts">
+    <div class="image">
+      <img src="{{item.product_image}}" alt="">
+    </div>
+    <div class="lower">
+      <ion-item  lines="none" detail="false" style="--background:transparent" class="category">
+        <p>Price : {{item.price | currency:'USD' }}</p>
+        <p slot="end">{{ item.created_at | date:'mediumDate'}}</p>
+      </ion-item>
+      <div class="heading">
+        <h3>Product Name: {{item.productname}}</h3>
+      </div>
+      <div class="contents_area">
+        <p>Description: {{item.description}}</p>
+      </div>
+      <div class="arrow">
+        <p>Town: {{item.town}}</p>
+      </div>
+      <div style="margin-left: 10px;">
+        <button class="btn btn-success" (click)="addtocart(item)">Add Cart</button>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="main">
+    <div class="image">
+      <img src="../../../assets/img/gettyimages-555173607-2.jpg" alt="">
+    </div>
+    <div class="lower">
+      <ion-item  lines="none" detail="false" style="--background:transparent" class="category">
+        <p>Kategorie</p>
+        <p slot="end">23. März 2021</p>
+      </ion-item>
+      <div class="heading">
+        <h3>Familientag in Berlin</h3>
+      </div>
+      <div class="contents_area">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ex laborum, repellat error laudantium facilis ipsum officia.</p>
+      </div>
+      <div class="arrow">
+        <p>Weiterlesen <i class="fas fa-arrow-right"></i> </p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="image">
+      <img src="../../../assets/img/building-wallpaper.jpg" alt="">
+    </div>
+    <div class="lower">
+      <ion-item  lines="none" detail="false" style="--background:transparent" class="category">
+        <p>Kategorie</p>
+        <p slot="end">23. März 2021</p>
+      </ion-item>
+      <div class="heading">
+        <h3>Familientag in Berlin</h3>
+      </div>
+      <div class="contents_area">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ex laborum, repellat error laudantium facilis ipsum officia.</p>
+      </div>
+      <div class="arrow">
+        <p>Weiterlesen <i class="fas fa-arrow-right"></i> </p>
+      </div>
+    </div>
+  </div>  <div class="main">
+    <div class="image">
+      <img src="../../../assets/img/gettyimages-555173607-2.jpg" alt="">
+    </div>
+    <div class="lower">
+      <ion-item  lines="none" detail="false" style="--background:transparent" class="category">
+        <p>Kategorie</p>
+        <p slot="end">23. März 2021</p>
+      </ion-item>
+      <div class="heading">
+        <h3>Familientag in Berlin</h3>
+      </div>
+      <div class="contents_area">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ex laborum, repellat error laudantium facilis ipsum officia.</p>
+      </div>
+      <div class="arrow">
+        <p>Weiterlesen <i class="fas fa-arrow-right"></i> </p>
+      </div>
+    </div>
+  </div> -->
+
+</ion-content>

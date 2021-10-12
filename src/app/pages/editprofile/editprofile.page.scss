@@ -1,0 +1,78 @@
+.logo .image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border: 1px solid transparent;
+}
+.main{
+    height: auto;
+    width: 100%;
+  
+    // background-color: yellowgreen;
+    // border: 2px dashed red;
+    padding: 40px;
+}
+.inputs .label{
+    color: #303132;
+    text-align: start;
+    font-size: 14px;
+    margin-left: 5px;;
+    font-weight: 500;
+}
+.inputs .inputstyle{
+    height: 42px;
+    width: 100%;
+    margin: 5px 0 5px 0;
+    outline: none;
+    border: none;
+    background: #f0f0f0;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #b6b6b6;
+    padding-left: 10px;
+}
+.bgr-buttn .bg_mybtn {
+    width: 70%;
+    height: 53px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    color: white;
+    border-radius: 50px;
+    background: #3b3b3b;
+}
+.text-botom p{
+    color: #303132;
+    font-size: 12px;
+    font-weight: inherit;
+    text-transform: capitalize;
+    text-align: center;
+}
+.text-botom .mm{
+    color: #b6b6b6;
+    font-size: 12px;
+    font-weight: inherit;
+    text-align: center;
+    text-transform: capitalize;
+   
+}
+.icon{
+    height: 23px;
+    width: 23px;
+    text-align: center;
+    color: #fff;
+    text-transform: lowercase;
+    background: #3b3b3b;
+    border-radius: 50px;
+}
+.question{
+    --background: transparent;
+  }

@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="logo">
+    <img src="../../../assets/img/logo1.png" alt="" class="image">
+  </div>
+  <div class="main">
+    <div class="inputs">
+      <label for="email" class="label">E-mail</label>
+      <input type="text" name="email" class="inputstyle" [(ngModel)]="userdata.email" placeholder="E-mail">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Password</label>
+      <input type="password" name="password" class="inputstyle" [(ngModel)]="userdata.password" placeholder="Password">
+    </div>
+    <h3 style="font-weight: bold; color: #000000; text-transform: uppercase; margin: 3px;">User Information</h3>
+    <div class="inputs">
+      <label for="email" class="label">Name*</label>
+      <input type="text" name="name" [(ngModel)]="userdata.user_name" class="inputstyle" placeholder="Name">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Phone*</label>
+      <input type="tel" name="phone" [(ngModel)]="userdata.phone" class="inputstyle" placeholder="Phone No">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Image*</label>
+      <input type="file" name="iamge" accept="image/*" class="inputstyle" (change)="imageupload($event)" placeholder="Profilbild">
+    </div>
+    <div class="inputs">
+      <label for="email" class="label">Town*</label>
+      <select name="cars" id="cars" class="inputstyle" [(ngModel)]="userdata.town">
+        <option value="Firgas">Firgas</option>
+        <option value="Juan Grande">Juan Grande</option>
+        <option value="San Agustín">San Agustín</option>
+        <option value="Gran Canaria,">Gran Canaria</option>
+        <option value="Telde">Telde</option>
+  </select>
+      <!-- <input type="text" name="email" class="inputstyle" placeholder="E-mail"> -->
+    </div>
+    <div class="bgr-buttn" (click)="updateprofile()">
+    <button class="bg_mybtn">Update</button>
+   </div>
+  </div>
+</ion-content>

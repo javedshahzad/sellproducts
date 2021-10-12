@@ -106,7 +106,7 @@ ion-item.selected {
  .profile_content{
   position: absolute;
   left: 0;
-  bottom: 20px;
+  bottom: 35px;
   color: #303132;
   width: 100%;
   transition: all 0.4s ease;
@@ -203,7 +203,7 @@ font-weight: 400;
 .profile_content #log_out{
   position: absolute;
   bottom: 2px;
-  left: 75%;
+  right: -8%;
   transform: translateX(-50%);
   min-width: 50px;
   line-height: 50px;

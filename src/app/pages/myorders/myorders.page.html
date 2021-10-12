@@ -1,0 +1,58 @@
+<ion-header lines="none" detail="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="news">
+    <h3>My orders</h3>
+  </div>
+</ion-header>
+
+<ion-content class="main">
+<div class="lower" *ngFor="let product of getallorders" >
+  <ion-item lines="none" detail="false" class="question">
+      <img src="{{product.product_image}}" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Name: {{product.productname}}</p>
+      <span class="p2">Description: {{product.description}}</span>
+      <p class="p3">Town: {{product.town}}</p>
+      <p class="p4">Price :{{ product.price | currency:'USD' }}</p>
+    </ion-label>
+  </ion-item>
+</div>
+
+<!-- <div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/doc1.PNG" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div>
+<div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/med1.jpg" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div>
+<div class="lower">
+  <ion-item lines="none" detail="false" class="question">
+      <img src="../../../assets/img/doc2.PNG" alt="" class="image">
+    <ion-label class="dd">
+      <p class="p1">Klinikum Dortmund gGmbh</p>
+      <span class="p2">Orthopadie</span>
+      <p class="p3">Prof. Dr. Christen Luring</p>
+      <p class="p4">tel. +49(0)231953-21850</p>
+    </ion-label>
+  </ion-item>
+</div> -->
+</ion-content>
