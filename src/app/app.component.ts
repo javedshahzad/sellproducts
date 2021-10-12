@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
     } else if(localStorage.getItem("usertype") == "users") {
         this.nav.navigateRoot('/products');
     }else{
-      this.nav.navigateRoot('/loginvia');
+      this.nav.navigateRoot('/start');
     }
 
     }

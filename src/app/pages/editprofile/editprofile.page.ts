@@ -55,7 +55,12 @@ userdata:any={};
       console.log(resd);
       this.util.presentToast("Profile updated Successfull");
       this.util.dismissLoader();
+      if(localStorage.getItem("usertype") == "admin"){
+        this.nav.navigateRoot('admin/allproducts');
+    } else {
       this.nav.navigateForward('products')
+    }
+      
     })
   }
 
