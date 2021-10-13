@@ -60,7 +60,12 @@ console.log(dateTime);
       console.log(resd);
       this.util.presentToast("Product Added successfully!");
       this.util.dismissLoader();
-      this.nav.navigateForward('admin/allproducts')
+      if(localStorage.getItem("usertype") =="deliverymen"){
+        this.nav.navigateForward('products')
+      }else{
+        this.nav.navigateForward('admin/allproducts')
+      }
+     
     })
     }else{
       this.util.presentToast("Please fill all fields");

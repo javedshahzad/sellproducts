@@ -9,6 +9,7 @@ import { BehaviorSubject } from "rxjs";
 export class ApiserviceService {
   public isupdateLogin = new BehaviorSubject(true);
   userprofile:any={};
+  allopermission:boolean;
   constructor() { }
   configApp() {
     firebase.initializeApp(environment.firebaseConfig);

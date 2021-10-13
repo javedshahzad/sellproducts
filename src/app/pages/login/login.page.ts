@@ -26,22 +26,24 @@ export class LoginPage implements OnInit {
     localStorage.setItem('uid',res.user.uid);
     this.util.dismissLoader();
     this.util.presentToast("Login Succefull")
-    if(this.users.email == "admin@gmail.com"){
-      console.log("admin");
+    if(this.users.usertype == "admin"){
+      console.log("admin+++++++++++");
       localStorage.setItem("usertype","admin")
       this.api.isupdateLogin.next(true);
       this.nav.navigateForward("admin");
     }else{
       console.log("users");
-      localStorage.setItem("usertype","users")
+      localStorage.setItem("usertype",this.users.usertype)
       this.api.isupdateLogin.next(true);
       this.nav.navigateForward("products");
     }
 
   }).catch(e=>{
+    this.util.dismissLoader();
    this.util.presentToast("The password is invalid or the user does not have a password.");
   });
    }else{
+    this.util.dismissLoader();
     this.util.presentToast("The password is invalid or the user does not have a password.");
    }
     // localStorage.setItem("uid",this.user.id);

@@ -35,6 +35,10 @@
           <input type="file" name="iamge" accept="image/*" class="inputstyle" (change)="imageupload($event)" placeholder="Profilbild">
         </div>
         <div class="inputs">
+          <label for="email" class="label">Address*</label>
+          <input type="text" name="name" [(ngModel)]="users.address" class="inputstyle" placeholder="Complete Address">
+        </div>
+        <div class="inputs">
           <label for="email" class="label">Town*</label>
           <select name="cars" id="cars" class="inputstyle" [(ngModel)]="users.town">
             <option value="Firgas">Firgas</option>
@@ -42,6 +46,14 @@
             <option value="San Agustín">San Agustín</option>
             <option value="Gran Canaria">Gran Canaria</option>
             <option value="Telde">Telde</option>
+      </select>
+        </div>
+        <div class="inputs">
+          <label for="email" class="label">User Type*</label>
+          <select name="cars" id="cars" class="inputstyle" [(ngModel)]="users.usertype">
+            <option value="users">Users</option>
+            <option value="admin">Admin</option>
+            <option value="deliverymen">Delivery Man</option>
       </select>
         </div>
         <div class="bgr-buttn" (click)="submit()">

@@ -10,24 +10,21 @@
 </ion-header>
 
 <ion-content class="main">
-<div class="lower" *ngFor="let item of bookings" >
-  <button class="btn btn-primary" (click)="chat(item)">Contact User</button>
+<div class="lower" *ngFor="let item of deliverymans" >
   <ion-item lines="none" detail="false" class="question">
-      <img src="{{item.product_image}}" alt="" class="image">
+      <img src="{{item.userProfile}}" alt="" class="image">
     <ion-label class="dd">
-      <p class="p1">Item Name: {{item.productname}}</p>
-      <span class="p2">Description: {{item.description}}</span>
-      <p class="p3">User: {{item.userName}}</p>
+      <p class="p1">User Name: {{item.user_name}}</p>
+      <span class="p2">User Email: {{item.email}}</span>
+      <p class="p3">User Type: {{item.usertype}}</p>
       <p class="p4">User Town: {{ item.userTown }}</p>
-      <p class="p4">Price {{ item.price | currency:'USD' }}</p>
-      <p class="p4">Arrival Date: {{ item.created_at | date:'short' }}</p>
-      <p class="p5" [class.active]="item.status === deliverd" [class.active2]="item.status === 'pending'">{{item.status}}</p>
+      <p class="p4">User Address {{ item.user_address }}</p>
+      <p class="p5" [class.active]="item.permission">Permission: {{item.permission}}</p>
     </ion-label>
   </ion-item>
   <ion-item>
-    <button class="btn btn-danger" slot="start" (click)="presentAlertPrompt(item.key)" *ngIf="item.status === 'pending'">Postpond</button>
-    <button style="margin-left: 20px;" class="btn btn-success" (click)="deliverditem(item.key)" *ngIf="item.status != 'delivered' ">Deliver</button>
-    <button class="btn btn-primary" slot="end" (click)="gotomap(item.town)">Map</button>
+    <button class="btn btn-primary" slot="start" (click)="allowpermission(item.key)" *ngIf="!item.permission">Allow Permission</button>
+    <button class="btn btn-danger" slot="start" (click)="notpermissions(item.key)" *ngIf="item.permission">Not Permission</button>
   </ion-item>
 </div>
 

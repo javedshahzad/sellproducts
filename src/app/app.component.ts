@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
             { title: 'Home', url: 'admin/allproducts', icon: 'mail' },
             { title: 'Add product', url: 'admin/addproduct', icon: 'paper-plane' },
             { title: 'All Bookings', url: 'admin/bookings', icon: 'heart' },
+            { title: 'Delivery Mans', url: 'admin/delveryman', icon: 'heart' },
           ];
         }else{
           this.appPages = [
@@ -58,7 +59,7 @@ export class AppComponent implements OnInit {
       
     if(localStorage.getItem("usertype") == "admin"){
         this.nav.navigateRoot('admin/allproducts');
-    } else if(localStorage.getItem("usertype") == "users") {
+    } else if(localStorage.getItem("usertype") == "users" || localStorage.getItem("usertype") == "deliverymen") {
         this.nav.navigateRoot('/products');
     }else{
       this.nav.navigateRoot('/start');
@@ -82,8 +83,10 @@ export class AppComponent implements OnInit {
   }
   logout(){
     localStorage.clear();
-    this.nav.navigateForward("loginvia");
+    firebase.auth().signOut();
     this.menu.close();
+    this.nav.navigateForward("loginvia");
+  
     // this.api.isupdateLogin.next(true);
   }
   userprofile(){
@@ -94,13 +97,15 @@ export class AppComponent implements OnInit {
       res.forEach((products)=>{
         temp.push({key:products.id, ...products.data()});
       });
-      // console.log(temp);
+      console.log(temp);
       this.userdata = temp;
       for(const users of this.userdata){
-       console.log(users.user_name);
+       console.log(users.user_name+"NNNNNNNNN");
        localStorage.setItem("userName",users.user_name);
        localStorage.setItem("userTown",users.town);
        localStorage.setItem("userProfile",users.userProfile);
+       this.api.allopermission=users.permission;
+       localStorage.setItem("permission",users.permission)
       }
       this.util.dismissLoader();
       // console.log(this.userdata);

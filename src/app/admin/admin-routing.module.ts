@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'chat/:user_id',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'delveryman',
+    loadChildren: () => import('./delveryman/delveryman.module').then( m => m.DelverymanPageModule)
   }
 ];
 

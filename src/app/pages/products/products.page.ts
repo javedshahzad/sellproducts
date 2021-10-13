@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import firebase from 'firebase';
+import { ApiserviceService } from 'src/app/services/apiservice.service';
 import { UtilService } from 'src/app/services/util.service';
 
 
@@ -12,10 +13,17 @@ import { UtilService } from 'src/app/services/util.service';
 })
 export class ProductsPage implements OnInit {
   getproducts:any=[];
+  deliveryman:any;
+  newpwermission: any;
+  usertype: string;
+
   constructor(
     private util : UtilService,
-    private nav : NavController
+    private nav : NavController,
+    private api : ApiserviceService,
   ) { 
+
+
     this.getallProducts();
   }
 
@@ -28,14 +36,21 @@ export class ProductsPage implements OnInit {
       res.forEach((products)=>{
         temp.push({key:products.id, ...products.data()});
       });
-      console.log(temp);
       this.getproducts = temp;
+      this.api.isupdateLogin.subscribe(_isLogin=>{
+        this.usertype = localStorage.getItem("usertype");
+        console.log(this.usertype)
+        this.deliveryman = this.api.allopermission;
+      });
+   
+      // console.log(this.deliveryman)
       this.util.dismissLoader();
-      // console.log(this.getproducts);
+     
     })
   }
   addtocart(data){
-    console.log(data);
+    if(localStorage.getItem("uid")){
+      console.log(data);
       var today3 = new Date();
       var date = today3.getFullYear()+'-'+(today3.getMonth()+1)+'-'+today3.getDate();
       var time = today3.getHours() + ":" + today3.getMinutes() + ":" + today3.getSeconds();
@@ -58,6 +73,24 @@ export class ProductsPage implements OnInit {
       this.util.presentToast("Product Added To cart!");
       this.util.dismissLoader();
       this.nav.navigateForward("mycart")
-    })
+    });
+
+    }else{
+      this.util.presentToast("Please register to add Cart items!");
+      this.nav.navigateForward("loginvia")
+    }
+
+
+
   }
+
+  addproduct(){
+    if(this.deliveryman){
+      this.nav.navigateForward("admin/addproduct")
+    }else{
+      this.util.presentToast("You have not permissioon to add products!");
+    }
+    
+  }
+
 }

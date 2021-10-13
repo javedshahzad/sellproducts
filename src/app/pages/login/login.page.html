@@ -11,6 +11,14 @@
       <label for="email" class="label">Password</label>
       <input type="password" [(ngModel)]="users.password" name="password" class="inputstyle">
     </div>
+    <div class="inputs">
+      <label for="email" class="label">User Type*</label>
+      <select name="cars" id="cars" class="inputstyle" [(ngModel)]="users.usertype">
+        <option value="users">Users</option>
+        <option value="admin">Admin</option>
+        <option value="deliverymen">Delivery Man</option>
+  </select>
+    </div>
    <div class="bgr-buttn" (click)="login()">
     <button class="bg_mybtn">Login</button>
    </div>

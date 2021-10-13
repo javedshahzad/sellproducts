@@ -21,9 +21,6 @@ export class RegisterPage implements OnInit {
     private modalCtrl : ModalController,
     private util : UtilService,
     private api : ApiserviceService,
-    // private storage: AngularFireStorage, 
-    // private database:AngularFirestore,
-    // private authobj : AngularFireAuth,
     ) {
       localStorage.setItem("google","0")
      }
@@ -57,7 +54,6 @@ export class RegisterPage implements OnInit {
         this.util.dismissLoader();
         console.log(res.user.uid);
         this.user_id=res.user.uid;
-        localStorage.setItem('uid',res.user.uid);
         // localStorage.setItem('uid',res.user.uid);
         this.upperdiv=false;
         this.lowerdiv=true;
@@ -86,31 +82,39 @@ export class RegisterPage implements OnInit {
     return text;
   }
   submit(){
-    this.util.startLoad();
-    let key = this.generateRandomString(16);
-    firebase.firestore().collection("users/").add({
-      email:this.users.email,
-      password:this.users.password,
-      user_name:this.users.name,
-      phone:this.users.phone,
-      userProfile:this.userImage,
-      town:this.users.town,
-      user_id:this.user_id,
-      created_at:Date.now(),
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }).then((resd)=>{
-      console.log(resd);
-      this.util.presentToast("Signup Successfull");
+    if(this.users.name != undefined && this.users.phone !=undefined){
+      this.util.startLoad();
+      let key = this.generateRandomString(16);
+      firebase.firestore().collection("users/").add({
+        email:this.users.email,
+        password:this.users.password,
+        user_name:this.users.name,
+        phone:this.users.phone,
+        userProfile:this.userImage,
+        town:this.users.town,
+        user_id:this.user_id,
+        user_address:this.users.address,
+        usertype:this.users.usertype,
+        permission:false,
+        created_at:Date.now(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).then((resd)=>{
+        console.log(resd);
+        this.util.presentToast("Signup Successfull");
+        this.util.dismissLoader();
+        if(localStorage.getItem("google") == "googlelogin"){
+          localStorage.setItem("usertype","users")
+          this.api.isupdateLogin.next(true);
+          this.nav.navigateForward('products')
+        }else{
+          this.nav.navigateForward('login')
+        }
+       
+      })
+    }else{
       this.util.dismissLoader();
-      if(localStorage.getItem("google") == "googlelogin"){
-        localStorage.setItem("usertype","users")
-        this.api.isupdateLogin.next(true);
-        this.nav.navigateForward('products')
-      }else{
-        this.nav.navigateForward('login')
-      }
-     
-    })
+      this.util.presentToast("Please fill Information");
+    }
   }
 
   newlogingoogle(){
